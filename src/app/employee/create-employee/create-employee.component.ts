@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-create-employee',
@@ -9,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CreateEmployeeComponent implements OnInit {
   isSpinnerLoading = false;
   employeeForm: FormGroup;
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
      this.employeeForm = new FormGroup({
@@ -35,7 +37,11 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   onSaveEmployee() {
+    if (this.employeeForm.invalid) return;
 
+    this.router.navigate(['/employees'])
   }
-
+  onLogout() {
+    this.authService.logout();
+  }
 }

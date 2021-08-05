@@ -3,20 +3,25 @@
     <ul>
       <li><a routerLink="/createEmployee">Create Employee</a></li>
       <li><a routerLink="/employees">Employees</a></li>
+      <li><button mat-raised-button (click)="onLogout()">Log out</button></li>
     </ul>
   </mat-toolbar>
   <div class="container">
     <div class="action-container">
       <h2>Create Employee</h2>
-      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        *ngIf="this.employeeForm.valid"
+        (click)="onSaveEmployee()"
+      >
+        Save
+      </button>
     </div>
     <div class="form-main-container">
       <mat-spinner *ngIf="isSpinnerLoading"></mat-spinner>
-      <form
-        class="form-container"
-        [formGroup]="employeeForm"
-        (ngSubmit)="onSaveEmployee()"
-      >
+      <form class="form-container" [formGroup]="employeeForm">
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
           <input

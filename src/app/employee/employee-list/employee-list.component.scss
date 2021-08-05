@@ -10,6 +10,10 @@ mat-toolbar {
   background-color: #3f51b5;
   ul {
     list-style-type: none;
+    button {
+      margin-top: 10px;
+      margin-left: 8px;
+    }
   }
 
   a {

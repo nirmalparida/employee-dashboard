@@ -4,6 +4,7 @@ import { Employee } from '../employee';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { EmployeeService } from '../employee.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -20,11 +21,13 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  constructor(private empService: EmployeeService) {
+  constructor(private authService: AuthService, private empService: EmployeeService) {
 
   }
 
   ngOnInit(): void {
   }
-
+  onLogout() {
+    this.authService.logout();
+  }
 }

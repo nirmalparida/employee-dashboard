@@ -2,19 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-forget-password',
-  templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.scss']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss']
 })
-export class ForgetPasswordComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit {
   isSpinnerLoading = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  onReset() {
-    this.router.navigate(['/resetPassword']);
-  }
+
   onCancel() {
     this.router.navigate(['/login']);
   }
