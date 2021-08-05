@@ -1,0 +1,31 @@
+.main-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+mat-toolbar {
+  min-height: 100vh;
+  width: 260px;
+  background-color: #3f51b5;
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+  }
+}
+
+.dashboard-container {
+  margin-left: 50px;
+  margin-top: 40px;
+  width: 75%;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 30px;
+  max-height: 100vh;
+}

@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="left-container"></div>
+  <div class="right-container">
+    <mat-card>
+      <mat-card-title>Signup to the Dashboard</mat-card-title>
+      <mat-spinner *ngIf="isSpinnerLoading"></mat-spinner>
+      <form
+        (submit)="signupHandler(signupForm)"
+        #signupForm="ngForm"
+        *ngIf="!isSpinnerLoading"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="email"
+            name="email"
+            ngModel
+            #emailInput="ngModel"
+            required
+            email
+          />
+          <mat-error *ngIf="emailInput.invalid">
+            Please enter a valid Email.</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            ngModel
+            #passwordInput="ngModel"
+            required
+          />
+          <mat-error *ngIf="passwordInput.invalid">
+            Please enter a valid password.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Re-Enter Password</mat-label>
+          <input
+            matInput
+            type="password"
+            name="password"
+            ngModel
+            #passwordInput="ngModel"
+            required
+          />
+          <mat-error *ngIf="passwordInput.invalid">
+            Please enter a valid password.
+          </mat-error>
+        </mat-form-field>
+        <mat-card-actions>
+          <p>
+            <a routerLink="/login">Already have an account? click me</a>
+          </p>
+        </mat-card-actions>
+        <mat-card-footer>
+          <button
+            mat-raised-button
+            color="accent"
+            type="submit"
+            *ngIf="!isSpinnerLoading"
+          >
+            SINGUP
+          </button>
+        </mat-card-footer>
+      </form>
+    </mat-card>
+  </div>
+</div>

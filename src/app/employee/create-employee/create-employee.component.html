@@ -1,0 +1,112 @@
+<div class="main-container">
+  <mat-toolbar>
+    <ul>
+      <li><a routerLink="/createEmployee">Create Employee</a></li>
+      <li><a routerLink="/employees">Employees</a></li>
+    </ul>
+  </mat-toolbar>
+  <div class="container">
+    <div class="action-container">
+      <h2>Create Employee</h2>
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+    <div class="form-main-container">
+      <mat-spinner *ngIf="isSpinnerLoading"></mat-spinner>
+      <form
+        class="form-container"
+        [formGroup]="employeeForm"
+        (ngSubmit)="onSaveEmployee()"
+      >
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="fullname"
+            name="fullname"
+          />
+          <mat-error *ngIf="employeeForm.get('fullname').invalid">
+            Please enter the Your Full Name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Job Title</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="jobTitle"
+            name="jobTitle"
+          />
+          <mat-error *ngIf="employeeForm.get('jobTitle').invalid">
+            Please enter the Your Job Title
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Department</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="department"
+            name="department"
+          />
+          <mat-error *ngIf="employeeForm.get('department').invalid">
+            Please enter the Your Department Name
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Location</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="location"
+            name="location"
+          />
+          <mat-error *ngIf="employeeForm.get('location').invalid">
+            Please enter the Your Location
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Age</mat-label>
+          <input matInput type="text" formControlName="age" name="age" />
+          <mat-error *ngIf="employeeForm.get('age').invalid">
+            Please enter the Your Age
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Salary</mat-label>
+          <input matInput type="text" formControlName="salary" name="salary" />
+          <mat-error *ngIf="employeeForm.get('salary').invalid">
+            Please enter the Your Full Name
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="data-container">
+        <div>
+          <label>Full Name</label>
+          <p class="bold">{{ employeeForm.get("fullname").value }}</p>
+        </div>
+        <div class="mt-40">
+          <label>Job Title</label>
+          <p class="bold">{{ employeeForm.get("jobTitle").value }}</p>
+        </div>
+        <div class="mt-40">
+          <label>Department</label>
+          <p class="bold">{{ employeeForm.get("department").value }}</p>
+        </div>
+        <div class="mt-40">
+          <label>Location</label>
+          <p class="bold">{{ employeeForm.get("location").value }}</p>
+        </div>
+        <div class="mt-40">
+          <label>Age</label>
+          <p class="bold">{{ employeeForm.get("age").value }}</p>
+        </div>
+        <div class="mt-40">
+          <label>Salary</label>
+          <p class="bold">{{ employeeForm.get("salary").value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
