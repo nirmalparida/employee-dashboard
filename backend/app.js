@@ -1,9 +1,9 @@
-const path = require("path");
 const bodyParser = require("body-parser");
 const express = require("express");
 const mongoose = require("mongoose");
 
 const userRoutes = require("../backend/routes/user");
+const employeeRoutes = require("../backend/routes/employees");
 const app = express();
 
 mongoose
@@ -21,7 +21,6 @@ mongoose
   });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/images", express.static(path.join("backend/images")));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -38,5 +37,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/employees", employeeRoutes);
 
 module.exports = app;

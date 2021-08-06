@@ -19,7 +19,6 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
   isSpinnerLoading: boolean = false;
   private employeesSub: Subscription;
   private authSatusSub: Subscription;
-
   displayedColumns: string[] = ['empId', 'fullName', 'jobTitle', 'department', 'location', 'age', 'salary', 'actions'];
   dataSource = new MatTableDataSource<Employee>(this.empService.getEmployeeData());
 

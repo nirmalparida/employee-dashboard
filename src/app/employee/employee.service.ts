@@ -5,20 +5,19 @@ import { Subject } from 'rxjs';
 import { map } from "rxjs/operators";
 import { environment } from 'src/environments/environment';
 import { Employee } from './employee';
-import { EMPLOYEES } from './employee-data';
+// import { EMPLOYEES } from './employee-data';
 
-const BACKEND_URL = environment.apiUrl + '/posts/';
+const BACKEND_URL = environment.apiUrl + '/employees/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  private _employeeData: Employee[] = [...EMPLOYEES]
+  private _employeeData: Employee[] = []
   private employeesUpdated = new Subject<{ _employeeData: Employee[] }>();
 
   constructor(private http: HttpClient, private router: Router){}
   getEmployeeData() {
-    console.log(this._employeeData);
     return [...this._employeeData]
   }
 
