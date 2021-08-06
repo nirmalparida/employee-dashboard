@@ -6,8 +6,9 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 
 const routes: Routes = [
   { path: "", loadChildren: () => import('../app/auth/auth.module').then(m => m.AuthModule) },
-  { path: "employees", component: EmployeeListComponent},
+  { path: "employees", component: EmployeeListComponent },
   { path: "createEmployee", component: CreateEmployeeComponent},
+  { path: 'edit/:empId', component: CreateEmployeeComponent },
   { path: "**", component: PageNotFoundComponent}
 ];
 
