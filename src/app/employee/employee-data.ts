@@ -5,7 +5,7 @@ export const EMPLOYEES: Employee[] = [
     empId: "1",
     fullName: "Employee1",
     jobTitle: "Angular Developer",
-    department: "IT Services",
+    department: "IT Technology",
     location: "Hyderabad",
     age: 26,
     salary: 1600000
@@ -1793,4 +1793,13 @@ export const EMPLOYEES: Employee[] = [
     age: 26,
     salary: 1600000
   },
+  {
+    empId: "201",
+    fullName: "Employee201",
+    jobTitle: "Angular Developer Expert",
+    department: "IT Services",
+    location: "Hyderabad",
+    age: 27,
+    salary: 1300000
+  }
 ]
